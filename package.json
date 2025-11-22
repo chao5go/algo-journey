@@ -1,0 +1,35 @@
+{
+  "name": "algo-journey",
+  "version": "1.0.0",
+  "description": "🚀 Algo Journey - 记录算法学习的每一步，从入门到精通",
+  "main": "index.html",
+  "scripts": {
+    "build": "node scripts/deploy.js",
+    "dev": "node scripts/start.js",
+    "deploy": "node scripts/deploy.js",
+    "validate": "node scripts/validate.js",
+    "serve": "python3 -m http.server 8000 --directory .",
+    "start": "node scripts/start.js"
+  },
+  "keywords": [
+    "algorithm",
+    "leetcode",
+    "coding",
+    "programming",
+    "journey",
+    "learning",
+    "github-pages",
+    "python"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/algo-journey.git"
+  },
+  "homepage": "https://yourusername.github.io/algo-journey",
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

@@ -1,0 +1,28 @@
+[
+  {
+    "id": "valid-sudoku",
+    "title": "数独有效性验证",
+    "difficulty": "medium",
+    "category": "数组",
+    "date": "2024-01-20",
+    "excerpt": "判断一个9x9的数独棋盘是否有效，检查行、列和3x3宫格中的数字重复。",
+    "url": "./problems/array/valid-sudoku.html",
+    "pythonUrl": "./solutions/array/valid_sudoku.py",
+    "tags": ["数组", "哈希表", "矩阵"],
+    "leetcodeId": 36,
+    "readTime": 8
+  },
+  {
+    "id": "min-operations-divisible-by-3",
+    "title": "最小操作次数",
+    "difficulty": "easy",
+    "category": "数学",
+    "date": "2024-01-19",
+    "excerpt": "将数组中所有元素变为3的倍数的最少操作次数。",
+    "url": "./problems/math/min-operations-divisible-by-3.html",
+    "pythonUrl": "./solutions/math/min_operations_divisible_by_3.py",
+    "tags": ["数学", "数组", "贪心"],
+    "leetcodeId": 0,
+    "readTime": 5
+  }
+]

@@ -1,0 +1,76 @@
+{
+  "totalProblems": 2,
+  "totalCategories": 12,
+  "recentUpdates": 2,
+  "linesOfCode": 450,
+  "solvingDays": 2,
+  "streakDays": 2,
+  "difficultyDistribution": {
+    "easy": 1,
+    "medium": 1,
+    "hard": 0
+  },
+  "lastUpdated": "2024-01-20T10:30:00Z",
+  "categories": {
+    "array": {
+      "total": 1,
+      "completed": 1,
+      "progress": 100
+    },
+    "string": {
+      "total": 0,
+      "completed": 0,
+      "progress": 0
+    },
+    "linked-list": {
+      "total": 0,
+      "completed": 0,
+      "progress": 0
+    },
+    "tree": {
+      "total": 0,
+      "completed": 0,
+      "progress": 0
+    },
+    "graph": {
+      "total": 0,
+      "completed": 0,
+      "progress": 0
+    },
+    "dp": {
+      "total": 0,
+      "completed": 0,
+      "progress": 0
+    },
+    "math": {
+      "total": 1,
+      "completed": 1,
+      "progress": 100
+    },
+    "sorting": {
+      "total": 0,
+      "completed": 0,
+      "progress": 0
+    },
+    "searching": {
+      "total": 0,
+      "completed": 0,
+      "progress": 0
+    },
+    "backtracking": {
+      "total": 0,
+      "completed": 0,
+      "progress": 0
+    },
+    "greedy": {
+      "total": 0,
+      "completed": 0,
+      "progress": 0
+    },
+    "binary-search": {
+      "total": 0,
+      "completed": 0,
+      "progress": 0
+    }
+  }
+}

@@ -1,0 +1,239 @@
+/* ===== CATEGORIES SECTION ===== */
+.categories {
+    background: var(--bg-primary);
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.category-card {
+    background: var(--bg-primary);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    position: relative;
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+}
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.category-header {
+    padding: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.category-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+.category-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.category-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.category-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+    background: var(--bg-tertiary);
+    border-top: 1px solid var(--border-color);
+}
+
+.category-stat {
+    text-align: center;
+}
+
+.stat-count {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Category specific colors */
+.category-card.array::before { background: linear-gradient(90deg, #667eea, #764ba2); }
+.category-card.array .category-icon { background: linear-gradient(135deg, #667eea, #764ba2); }
+
+.category-card.string::before { background: linear-gradient(90deg, #f093fb, #f5576c); }
+.category-card.string .category-icon { background: linear-gradient(135deg, #f093fb, #f5576c); }
+
+.category-card.linked-list::before { background: linear-gradient(90deg, #4facfe, #00f2fe); }
+.category-card.linked-list .category-icon { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+
+.category-card.tree::before { background: linear-gradient(90deg, #43e97b, #38f9d7); }
+.category-card.tree .category-icon { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+
+.category-card.graph::before { background: linear-gradient(90deg, #fa709a, #fee140); }
+.category-card.graph .category-icon { background: linear-gradient(135deg, #fa709a, #fee140); }
+
+.category-card.dp::before { background: linear-gradient(90deg, #30cfd0, #330867); }
+.category-card.dp .category-icon { background: linear-gradient(135deg, #30cfd0, #330867); }
+
+.category-card.math::before { background: linear-gradient(90deg, #a8edea, #fed6e3); }
+.category-card.math .category-icon { background: linear-gradient(135deg, #a8edea, #fed6e3); }
+
+.category-card.sorting::before { background: linear-gradient(90deg, #ff9a9e, #fecfef); }
+.category-card.sorting .category-icon { background: linear-gradient(135deg, #ff9a9e, #fecfef); }
+
+.category-card.searching::before { background: linear-gradient(90deg, #ffecd2, #fcb69f); }
+.category-card.searching .category-icon { background: linear-gradient(135deg, #ffecd2, #fcb69f); }
+
+.category-card.backtracking::before { background: linear-gradient(90deg, #ff6e7f, #bfe9ff); }
+.category-card.backtracking .category-icon { background: linear-gradient(135deg, #ff6e7f, #bfe9ff); }
+
+.category-card.greedy::before { background: linear-gradient(90deg, #e0c3fc, #8ec5fc); }
+.category-card.greedy .category-icon { background: linear-gradient(135deg, #e0c3fc, #8ec5fc); }
+
+.category-card.binary-search::before { background: linear-gradient(90deg, #f8b500, #fceabb); }
+.category-card.binary-search .category-icon { background: linear-gradient(135deg, #f8b500, #fceabb); }
+
+.category-card.others::before { background: linear-gradient(90deg, #d299c2, #fef9d7); }
+.category-card.others .category-icon { background: linear-gradient(135deg, #d299c2, #fef9d7); }
+
+/* Difficulty badges */
+.difficulty-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.difficulty-badge.easy {
+    background: #c6f6d5;
+    color: #22543d;
+}
+
+.difficulty-badge.medium {
+    background: #fed7d7;
+    color: #742a2a;
+}
+
+.difficulty-badge.hard {
+    background: #fed7d7;
+    color: #742a2a;
+}
+
+/* Progress bars */
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 4px;
+    transition: width 1s ease;
+}
+
+/* Tags */
+.category-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+.tag {
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Responsive design for categories */
+@media (max-width: 768px) {
+    .categories-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .category-header {
+        padding: 20px;
+    }
+
+    .category-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .category-title {
+        font-size: 1.3rem;
+    }
+
+    .category-stats {
+        padding: 15px;
+        gap: 20px;
+    }
+
+    .stat-count {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .categories-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .category-stats {
+        gap: 15px;
+    }
+}

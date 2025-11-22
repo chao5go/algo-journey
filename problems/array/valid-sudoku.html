@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数独有效性验证 | 算法解题记录</title>
+    <meta name="description" content="判断一个9x9的数独棋盘是否有效，检查行、列和3x3宫格中的数字重复。LeetCode 36题详细解答。">
+    <meta name="keywords" content="算法,36,数组,哈希表,矩阵,解题">
+
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/problem.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-rocket"></i>
+                <span>Algo Journey</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../../index.html" class="nav-link">首页</a></li>
+                <li><a href="../../index.html#categories" class="nav-link">分类</a></li>
+                <li><a href="../../index.html#recent" class="nav-link">最近更新</a></li>
+                <li><a href="../../index.html#statistics" class="nav-link">统计</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Problem Header -->
+    <header class="problem-header">
+        <div class="container">
+            <div class="problem-breadcrumb">
+                <a href="../../index.html">首页</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="../../index.html#categories">分类</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="./index.html">数组</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>数独有效性验证</span>
+            </div>
+
+            <div class="problem-title-section">
+                <h1 class="problem-title">数独有效性验证</h1>
+                <div class="problem-meta">
+                    <span class="problem-id">LeetCode 36</span>
+                    <span class="difficulty medium">Medium</span>
+                    <span class="category">数组</span>
+                    <span class="date">2024-01-20</span>
+                </div>
+            </div>
+
+            <div class="problem-tags">
+                <span class="tag">数组</span>
+                <span class="tag">哈希表</span>
+                <span class="tag">矩阵</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Problem Content -->
+    <main class="problem-content">
+        <div class="container">
+            <div class="problem-layout">
+                <!-- Table of Contents -->
+                <aside class="problem-sidebar">
+                    <div class="toc">
+                        <h3>目录</h3>
+                        <nav class="toc-nav">
+                            <ul>
+                                <li><a href="#description">题目描述</a></li>
+                                <li><a href="#examples">示例</a></li>
+                                <li><a href="#constraints">约束条件</a></li>
+                                <li><a href="#approach">解题思路</a></li>
+                                <li><a href="#algorithm">算法实现</a></li>
+                                <li><a href="#complexity">复杂度分析</a></li>
+                                <li><a href="#code">代码实现</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <div class="quick-info">
+                        <h3>快速信息</h3>
+                        <div class="info-item">
+                            <span class="label">时间复杂度:</span>
+                            <span class="value">O(81) = O(1)</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">空间复杂度:</span>
+                            <span class="value">O(27) = O(1)</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">相关题目:</span>
+                            <div class="related-problems">
+                                <a href="#">有效的数独求解</a>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <article class="problem-main">
+                    <!-- Problem Description -->
+                    <section id="description" class="problem-section">
+                        <h2><i class="fas fa-book"></i> 题目描述</h2>
+                        <div class="problem-description">
+                            <p>请你判断一个 <code>9 x 9</code> 的数独是否有效。只需要 <strong>根据以下规则</strong> ，验证已经填入的数字是否有效即可。</p>
+
+                            <ol>
+                                <li>数字 <code>1-9</code> 在每一行只能出现一次。</li>
+                                <li>数字 <code>1-9</code> 在每一列只能出现一次。</li>
+                                <li>数字 <code>1-9</code> 在每一个以粗实线分隔的 <code>3x3</code> 宫内只能出现一次。</li>
+                            </ol>
+
+                            <div class="highlight">
+                                <strong>注意：</strong>
+                                <ul>
+                                    <li>一个有效的数独（部分已被填充）不一定是可解的。</li>
+                                    <li>只需要根据以上规则，验证已经填入的数字是否有效即可。</li>
+                                    <li>空白格用 <code>'.'</code> 表示。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Examples -->
+                    <section id="examples" class="problem-section">
+                        <h2><i class="fas fa-list"></i> 示例</h2>
+                        <div class="examples">
+                            <div class="example">
+                                <div class="example-title">示例 1：</div>
+                                <div class="example-content">
+                                    <div class="input-block">
+                                        <div class="block-label">输入：</div>
+                                        <div class="block-content">
+board =
+[["5","3",".",".","7",".",".",".","."]
+,["6",".",".","1","9","5",".",".","."]
+,[".","9","8",".",".",".",".","6","."]
+,["8",".",".",".","6",".",".",".","3"]
+,["4",".",".","8",".","3",".",".","1"]
+,["7",".",".",".","2",".",".",".","6"]
+,[".","6",".",".",".",".","2","8","."]
+,[".",".",".","4","1","9",".",".","5"]
+,[".",".",".",".","8",".",".","7","9"]]
+                                        </div>
+                                    </div>
+                                    <div class="output-block">
+                                        <div class="block-label">输出：</div>
+                                        <div class="block-content">true</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="example">
+                                <div class="example-title">示例 2：</div>
+                                <div class="example-content">
+                                    <div class="input-block">
+                                        <div class="block-label">输入：</div>
+                                        <div class="block-content">
+board =
+[["8","3",".",".","7",".",".",".","."]
+,["6",".",".","1","9","5",".",".","."]
+,[".","9","8",".",".",".",".","6","."]
+,["8",".",".",".","6",".",".",".","3"]
+,["4",".",".","8",".","3",".",".","1"]
+,["7",".",".",".","2",".",".",".","6"]
+,[".","6",".",".",".",".","2","8","."]
+,[".",".",".","4","1","9",".",".","5"]
+,[".",".",".",".","8",".",".","7","9"]]
+                                        </div>
+                                    </div>
+                                    <div class="output-block">
+                                        <div class="block-label">输出：</div>
+                                        <div class="block-content">false</div>
+                                    </div>
+                                </div>
+                                <div class="example-explanation">
+                                    解释：除了第一行的第一个数字从 5 改为 8 以外，空格内其他数字均与 示例1 相同。但由于位于左上角的 3x3 宫内有两个 8 存在, 因此这个数独是无效的。
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Constraints -->
+                    <section id="constraints" class="problem-section">
+                        <h2><i class="fas fa-exclamation-triangle"></i> 约束条件</h2>
+                        <div class="constraints">
+                            <li><code>board.length == 9</code></li>
+                            <li><code>board[i].length == 9</code></li>
+                            <li><code>board[i][j]</code> 是一位数字（<code>1-9</code>）或者 <code>'.'</code></li>
+                        </div>
+                    </section>
+
+                    <!-- Approach -->
+                    <section id="approach" class="problem-section">
+                        <h2><i class="fas fa-lightbulb"></i> 解题思路</h2>
+                        <div class="approach">
+                            <h3>核心思想</h3>
+                            <p>使用<strong>哈希表</strong>（在Python中可以用集合Set）来记录每一行、每一列、每一个3×3宫格中已经出现的数字。在遍历棋盘时，对于每个非空格子，检查其数字是否在对应的行、列或宫格中已经出现过。</p>
+
+                            <h3>算法步骤</h3>
+                            <ol>
+                                <li>创建三个数组来存储已出现的数字：
+                                    <ul>
+                                        <li><code>rows[9]</code>：记录每一行的数字</li>
+                                        <li><code>cols[9]</code>：记录每一列的数字</li>
+                                        <li><code>boxes[9]</code>：记录每个3×3宫格的数字</li>
+                                    </ul>
+                                </li>
+                                <li>遍历整个9×9棋盘的每个格子</li>
+                                <li>对于每个非空格子（字符不是'.'）：
+                                    <ul>
+                                        <li>检查该数字是否已经在当前行出现过</li>
+                                        <li>检查该数字是否已经在当前列出现过</li>
+                                        <li>检查该数字是否已经在当前3×3宫格出现过</li>
+                                        <li>如果任何检查失败，返回false</li>
+                                        <li>否则，将该数字添加到对应的行、列、宫格集合中</li>
+                                    </ul>
+                                </li>
+                                <li>如果遍历完所有格子都没有冲突，返回true</li>
+                            </ol>
+
+                            <h3>宫格编号规则</h3>
+                            <p>关键问题是如何确定当前格子属于哪个3×3宫格。我们可以使用以下公式：</p>
+                            <div class="code-block">
+                                <pre>box_index = (row // 3) * 3 + (col // 3)</pre>
+                            </div>
+                            <p>这个公式将棋盘分成9个宫格，编号从0到8（左上角为0，右下角为8）。</p>
+                        </div>
+                    </section>
+
+                    <!-- Algorithm -->
+                    <section id="algorithm" class="problem-section">
+                        <h2><i class="fas fa-rocket-branch"></i> 算法步骤</h2>
+                        <div class="algorithm">
+                            <ol class="algorithm-steps">
+                                <li><strong>初始化数据结构</strong>：创建三个包含9个集合的数组</li>
+                                <li><strong>开始遍历</strong>：使用双重循环遍历9×9棋盘</li>
+                                <li><strong>处理每个格子</strong>：对每个格子进行以下操作
+                                    <ul>
+                                        <li>如果是空格，跳过</li>
+                                        <li>检查行冲突：检查数字是否在当前行的集合中</li>
+                                        <li>检查列冲突：检查数字是否在当前列的集合中</li>
+                                        <li>检查宫格冲突：确定宫格编号，检查数字是否在该宫格的集合中</li>
+                                        <li>如果无冲突，将数字添加到对应的集合中</li>
+                                        <li>如果有冲突，立即返回false</li>
+                                    </ul>
+                                </li>
+                                <li><strong>完成检查</strong>：如果遍历完成没有冲突，返回true</li>
+                            </ol>
+                        </div>
+                    </section>
+
+                    <!-- Complexity -->
+                    <section id="complexity" class="problem-section">
+                        <h2><i class="fas fa-chart-bar"></i> 复杂度分析</h2>
+                        <div class="complexity-analysis">
+                            <div class="complexity-item">
+                                <h4>时间复杂度</h4>
+                                <div class="complexity-value">O(81) = O(1)</div>
+                                <div class="complexity-explanation">
+                                    由于数独棋盘大小固定为9×9=81个格子，时间复杂度为常数时间。即使对于n×n的棋盘，复杂度也是O(n²)。
+                                </div>
+                            </div>
+                            <div class="complexity-item">
+                                <h4>空间复杂度</h4>
+                                <div class="complexity-value">O(27) = O(1)</div>
+                                <div class="complexity-explanation">
+                                    需要存储9行+9列+9宫格的集合，每个集合最多存储9个数字，所以空间复杂度为常数时间。
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Code -->
+                    <section id="code" class="problem-section">
+                        <h2><i class="fas fa-rocket"></i> 代码实现</h2>
+                        <div class="code-tabs">
+                            <div class="tab-buttons">
+                                <button class="tab-button active">Python</button>
+                            </div>
+                            <div class="tab-contents">
+                                <div class="tab-content active">
+                                    <div class="code-block">
+                                        <button class="copy-button" onclick="copyCode(this)">复制代码</button>
+                                        <pre><code class="language-python">def is_valid_sudoku(board):
+    """
+    判断一个9x9的数独是否有效
+
+    Args:
+        board: 9x9的二维字符数组，包含数字1-9或者'.'
+
+    Returns:
+        bool: 如果数独有效返回True，否则返回False
+    """
+
+    # 使用集合来记录每一行、每一列、每一个3x3宫格中已经出现的数字
+    rows = [set() for _ in range(9)]
+    cols = [set() for _ in range(9)]
+    boxes = [set() for _ in range(9)]  # 3x3宫格，从左到右，从上到下编号为0-8
+
+    for i in range(9):
+        for j in range(9):
+            num = board[i][j]
+
+            # 如果是空格，跳过
+            if num == '.':
+                continue
+
+            # 检查当前数字是否在当前行已经出现过
+            if num in rows[i]:
+                return False
+            rows[i].add(num)
+
+            # 检查当前数字是否在当前列已经出现过
+            if num in cols[j]:
+                return False
+            cols[j].add(num)
+
+            # 计算当前格子属于哪个3x3宫格
+            box_index = (i // 3) * 3 + (j // 3)
+
+            # 检查当前数字是否在当前3x3宫格中已经出现过
+            if num in boxes[box_index]:
+                return False
+            boxes[box_index].add(num)
+
+    return True</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="python-source-link" style="margin-top: 20px; text-align: center;">
+                            <a href="../../solutions/array/valid_sudoku.py" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
+                                <i class="fas fa-file-code"></i>
+                                查看完整Python源代码
+                            </a>
+                        </div>
+                    </section>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- Navigation Footer -->
+    <nav class="problem-nav">
+        <div class="container">
+            <div class="nav-links">
+                <a href="#" class="nav-link prev" id="prev-link" style="display: none;">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>上一题</span>
+                    <div class="problem-title">暂无</div>
+                </a>
+                <a href="./index.html" class="nav-link back">
+                    <i class="fas fa-list"></i>
+                    <span>返回数组</span>
+                </a>
+                <a href="#" class="nav-link next" id="next-link" style="display: none;">
+                    <i class="fas fa-arrow-right"></i>
+                    <span>下一题</span>
+                    <div class="problem-title">暂无</div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <i class="fas fa-rocket"></i>
+                        <span>Algo Journey</span>
+                    </div>
+                    <p>持续学习，不断进步</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>快速链接</h4>
+                        <ul>
+                            <li><a href="../../index.html">首页</a></li>
+                            <li><a href="../../index.html#categories">分类</a></li>
+                            <li><a href="../../index.html#recent">最近更新</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Algo Journey. Made with <i class="fas fa-heart"></i> for learning.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/problem.js"></script>
+    <script>
+        // Initialize syntax highlighting
+        hljs.highlightAll();
+
+        // Since we only have Python tabs, no tab switching needed
+
+        // Copy code function
+        function copyCode(button) {
+            const codeBlock = button.nextElementSibling;
+            const code = codeBlock.textContent;
+
+            navigator.clipboard.writeText(code).then(() => {
+                button.textContent = '已复制!';
+                button.classList.add('copied');
+
+                setTimeout(() => {
+                    button.textContent = '复制代码';
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        // Initialize problem page
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.ProblemPage) {
+                ProblemPage.initializeProblemPage({
+                    leetcodeId: '36',
+                    title: '数独有效性验证',
+                    category: 'array',
+                    difficulty: 'medium'
+                });
+            }
+        });
+    </script>
+</body>
+</html>

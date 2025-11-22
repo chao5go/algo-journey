@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{PROBLEM_TITLE}} | 算法解题记录</title>
+    <meta name="description" content="{{PROBLEM_DESCRIPTION}}">
+    <meta name="keywords" content="算法,{{LEETCODE_ID}},{{CATEGORY}},{{DIFFICULTY}},解题">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{PAGE_URL}}">
+    <meta property="og:title" content="{{PROBLEM_TITLE}} | 算法解题记录">
+    <meta property="og:description" content="{{PROBLEM_DESCRIPTION}}">
+    <meta property="og:image" content="{{THUMBNAIL_URL}}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{PAGE_URL}}">
+    <meta property="twitter:title" content="{{PROBLEM_TITLE}} | 算法解题记录">
+    <meta property="twitter:description" content="{{PROBLEM_DESCRIPTION}}">
+    <meta property="twitter:image" content="{{THUMBNAIL_URL}}">
+
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/problem.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-rocket"></i>
+                <span>Algo Journey</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">首页</a></li>
+                <li><a href="../index.html#categories" class="nav-link">分类</a></li>
+                <li><a href="../index.html#recent" class="nav-link">最近更新</a></li>
+                <li><a href="../index.html#statistics" class="nav-link">统计</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Problem Header -->
+    <header class="problem-header">
+        <div class="container">
+            <div class="problem-breadcrumb">
+                <a href="../index.html">首页</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="../index.html#categories">分类</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="../problems/{{CATEGORY}}/index.html">{{CATEGORY_NAME}}</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>{{PROBLEM_TITLE}}</span>
+            </div>
+
+            <div class="problem-title-section">
+                <h1 class="problem-title">{{PROBLEM_TITLE}}</h1>
+                <div class="problem-meta">
+                    <span class="problem-id">LeetCode {{LEETCODE_ID}}</span>
+                    <span class="difficulty {{DIFFICULTY_CLASS}}">{{DIFFICULTY}}</span>
+                    <span class="category">{{CATEGORY_NAME}}</span>
+                    <span class="date">{{CREATED_DATE}}</span>
+                </div>
+            </div>
+
+            <div class="problem-tags">
+                <!-- TAGS will be inserted here -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Problem Content -->
+    <main class="problem-content">
+        <div class="container">
+            <div class="problem-layout">
+                <!-- Table of Contents -->
+                <aside class="problem-sidebar">
+                    <div class="toc">
+                        <h3>目录</h3>
+                        <nav class="toc-nav">
+                            <ul>
+                                <li><a href="#description">题目描述</a></li>
+                                <li><a href="#examples">示例</a></li>
+                                <li><a href="#constraints">约束条件</a></li>
+                                <li><a href="#approach">解题思路</a></li>
+                                <li><a href="#algorithm">算法实现</a></li>
+                                <li><a href="#complexity">复杂度分析</a></li>
+                                <li><a href="#code">代码实现</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <div class="quick-info">
+                        <h3>快速信息</h3>
+                        <div class="info-item">
+                            <span class="label">时间复杂度:</span>
+                            <span class="value">{{TIME_COMPLEXITY}}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">空间复杂度:</span>
+                            <span class="value">{{SPACE_COMPLEXITY}}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">相关题目:</span>
+                            <div class="related-problems">
+                                <!-- RELATED_PROBLEMS will be inserted here -->
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <article class="problem-main">
+                    <!-- Problem Description -->
+                    <section id="description" class="problem-section">
+                        <h2><i class="fas fa-book"></i> 题目描述</h2>
+                        <div class="problem-description">
+                            <!-- PROBLEM_DESCRIPTION will be inserted here -->
+                        </div>
+                    </section>
+
+                    <!-- Examples -->
+                    <section id="examples" class="problem-section">
+                        <h2><i class="fas fa-list"></i> 示例</h2>
+                        <div class="examples">
+                            <!-- EXAMPLES will be inserted here -->
+                        </div>
+                    </section>
+
+                    <!-- Constraints -->
+                    <section id="constraints" class="problem-section">
+                        <h2><i class="fas fa-exclamation-triangle"></i> 约束条件</h2>
+                        <div class="constraints">
+                            <!-- CONSTRAINTS will be inserted here -->
+                        </div>
+                    </section>
+
+                    <!-- Approach -->
+                    <section id="approach" class="problem-section">
+                        <h2><i class="fas fa-lightbulb"></i> 解题思路</h2>
+                        <div class="approach">
+                            <!-- APPROACH will be inserted here -->
+                        </div>
+                    </section>
+
+                    <!-- Algorithm -->
+                    <section id="algorithm" class="problem-section">
+                        <h2><i class="fas fa-rocket-branch"></i> 算法步骤</h2>
+                        <div class="algorithm">
+                            <!-- ALGORITHM_STEPS will be inserted here -->
+                        </div>
+                    </section>
+
+                    <!-- Complexity -->
+                    <section id="complexity" class="problem-section">
+                        <h2><i class="fas fa-chart-bar"></i> 复杂度分析</h2>
+                        <div class="complexity-analysis">
+                            <!-- COMPLEXITY_ANALYSIS will be inserted here -->
+                        </div>
+                    </section>
+
+                    <!-- Code -->
+                    <section id="code" class="problem-section">
+                        <h2><i class="fas fa-rocket"></i> 代码实现</h2>
+                        <div class="code-tabs">
+                            <div class="tab-buttons">
+                                <!-- LANGUAGE_TABS will be inserted here -->
+                            </div>
+                            <div class="tab-contents">
+                                <!-- CODE_BLOCKS will be inserted here -->
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Test Cases -->
+                    <section id="test-cases" class="problem-section">
+                        <h2><i class="fas fa-vial"></i> 测试用例</h2>
+                        <div class="test-cases">
+                            <!-- TEST_CASES will be inserted here -->
+                        </div>
+                    </section>
+
+                    <!-- References -->
+                    <section id="references" class="problem-section">
+                        <h2><i class="fas fa-link"></i> 参考资料</h2>
+                        <div class="references">
+                            <!-- REFERENCES will be inserted here -->
+                        </div>
+                    </section>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- Navigation Footer -->
+    <nav class="problem-nav">
+        <div class="container">
+            <div class="nav-links">
+                <a href="{{PREV_PROBLEM_URL}}" class="nav-link prev" id="prev-link">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>上一题</span>
+                    <div class="problem-title">{{PREV_PROBLEM_TITLE}}</div>
+                </a>
+                <a href="../problems/{{CATEGORY}}/index.html" class="nav-link back">
+                    <i class="fas fa-list"></i>
+                    <span>返回{{CATEGORY_NAME}}</span>
+                </a>
+                <a href="{{NEXT_PROBLEM_URL}}" class="nav-link next" id="next-link">
+                    <i class="fas fa-arrow-right"></i>
+                    <span>下一题</span>
+                    <div class="problem-title">{{NEXT_PROBLEM_TITLE}}</div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <i class="fas fa-rocket"></i>
+                        <span>Algo Journey</span>
+                    </div>
+                    <p>持续学习，不断进步</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>快速链接</h4>
+                        <ul>
+                            <li><a href="../index.html">首页</a></li>
+                            <li><a href="../index.html#categories">分类</a></li>
+                            <li><a href="../index.html#recent">最近更新</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Algo Journey. Made with <i class="fas fa-heart"></i> for learning.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/problem.js"></script>
+    <script>
+        // Initialize syntax highlighting
+        hljs.highlightAll();
+
+        // Initialize problem page
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeProblemPage({
+                leetcodeId: '{{LEETCODE_ID}}',
+                title: '{{PROBLEM_TITLE}}',
+                category: '{{CATEGORY}}',
+                difficulty: '{{DIFFICULTY_CLASS}}'
+            });
+        });
+    </script>
+</body>
+</html>

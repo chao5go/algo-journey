@@ -1,0 +1,77 @@
+# Jekyll Configuration for GitHub Pages
+
+# Site settings
+title: Algo Journey
+description: 记录算法学习的每一步，从入门到精通
+url: "https://yourusername.github.io"
+baseurl: "/algo-journey"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/
+  - .git/
+  - .github/
+  - scripts/
+  - package.json
+  - package-lock.json
+  - README.md
+  - LICENSE
+  - CNAME
+
+# Include specific files and directories
+include:
+  - _pages
+  - _posts
+  - assets/
+  - problems/
+  - templates/
+
+# Sass configuration
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Collections
+collections:
+  problems:
+    output: true
+    permalink: /:collection/:name/
+
+# Default values
+defaults:
+  - scope:
+      path: ""
+      type: "problems"
+    values:
+      layout: "problem"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+# SEO
+lang: zh_CN
+timezone: Asia/Shanghai
+
+# Social
+twitter:
+  username: your_username
+  card: summary_large_image
+
+# Analytics (if needed)
+google_analytics: # Your tracking ID

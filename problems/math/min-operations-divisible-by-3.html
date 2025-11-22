@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>最小操作次数 | 算法解题记录</title>
+    <meta name="description" content="将数组中所有元素变为3的倍数的最少操作次数。简单的数学和数组操作题目。">
+    <meta name="keywords" content="算法,数组,数学,贪心,模运算,解题">
+
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/problem.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-rocket"></i>
+                <span>Algo Journey</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../../index.html" class="nav-link">首页</a></li>
+                <li><a href="../../index.html#categories" class="nav-link">分类</a></li>
+                <li><a href="../../index.html#recent" class="nav-link">最近更新</a></li>
+                <li><a href="../../index.html#statistics" class="nav-link">统计</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Problem Header -->
+    <header class="problem-header">
+        <div class="container">
+            <div class="problem-breadcrumb">
+                <a href="../../index.html">首页</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="../../index.html#categories">分类</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="./index.html">数学</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>最小操作次数</span>
+            </div>
+
+            <div class="problem-title-section">
+                <h1 class="problem-title">最小操作次数</h1>
+                <div class="problem-meta">
+                    <span class="problem-id">自定义题目</span>
+                    <span class="difficulty easy">Easy</span>
+                    <span class="category">数学</span>
+                    <span class="date">2024-01-19</span>
+                </div>
+            </div>
+
+            <div class="problem-tags">
+                <span class="tag">数学</span>
+                <span class="tag">数组</span>
+                <span class="tag">贪心</span>
+                <span class="tag">模运算</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Problem Content -->
+    <main class="problem-content">
+        <div class="container">
+            <div class="problem-layout">
+                <!-- Table of Contents -->
+                <aside class="problem-sidebar">
+                    <div class="toc">
+                        <h3>目录</h3>
+                        <nav class="toc-nav">
+                            <ul>
+                                <li><a href="#description">题目描述</a></li>
+                                <li><a href="#examples">示例</a></li>
+                                <li><a href="#constraints">约束条件</a></li>
+                                <li><a href="#approach">解题思路</a></li>
+                                <li><a href="#algorithm">算法实现</a></li>
+                                <li><a href="#complexity">复杂度分析</a></li>
+                                <li><a href="#code">代码实现</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <div class="quick-info">
+                        <h3>快速信息</h3>
+                        <div class="info-item">
+                            <span class="label">时间复杂度:</span>
+                            <span class="value">O(n)</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">空间复杂度:</span>
+                            <span class="value">O(1)</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">相关题目:</span>
+                            <div class="related-problems">
+                                <a href="#">模运算相关问题</a>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <article class="problem-main">
+                    <!-- Problem Description -->
+                    <section id="description" class="problem-section">
+                        <h2><i class="fas fa-book"></i> 题目描述</h2>
+                        <div class="problem-description">
+                            <p>给你一个整数数组 <code>nums</code>。一次操作中，你可以将 <code>nums</code> 中的 <strong>任意</strong> 一个元素增加或者减少 1。</p>
+
+                            <p>请你返回将 <code>nums</code> 中所有元素都可以被 3 整除的 <strong>最少</strong> 操作次数。</p>
+
+                            <div class="highlight">
+                                <strong>注意：</strong>
+                                <ul>
+                                    <li>每次操作只能选择一个元素，增加1或减少1</li>
+                                    <li>目标是要让所有元素都能被3整除</li>
+                                    <li>要求最少的总操作次数</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Examples -->
+                    <section id="examples" class="problem-section">
+                        <h2><i class="fas fa-list"></i> 示例</h2>
+                        <div class="examples">
+                            <div class="example">
+                                <div class="example-title">示例 1：</div>
+                                <div class="example-content">
+                                    <div class="input-block">
+                                        <div class="block-label">输入：</div>
+                                        <div class="block-content">nums = [1,2,3,4]</div>
+                                    </div>
+                                    <div class="output-block">
+                                        <div class="block-label">输出：</div>
+                                        <div class="block-content">3</div>
+                                    </div>
+                                </div>
+                                <div class="example-explanation">
+                                    解释：通过以下 3 个操作，数组中的所有元素都可以被 3 整除：
+                                    <ul>
+                                        <li>将 1 减少 1（变成0）</li>
+                                        <li>将 2 增加 1（变成3）</li>
+                                        <li>将 4 减少 1（变成3）</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="example">
+                                <div class="example-title">示例 2：</div>
+                                <div class="example-content">
+                                    <div class="input-block">
+                                        <div class="block-label">输入：</div>
+                                        <div class="block-content">nums = [3,6,9]</div>
+                                    </div>
+                                    <div class="output-block">
+                                        <div class="block-label">输出：</div>
+                                        <div class="block-content">0</div>
+                                    </div>
+                                </div>
+                                <div class="example-explanation">
+                                    解释：所有元素已经是3的倍数，不需要任何操作。
+                                </div>
+                            </div>
+
+                            <div class="example">
+                                <div class="example-title">示例 3：</div>
+                                <div class="example-content">
+                                    <div class="input-block">
+                                        <div class="block-label">输入：</div>
+                                        <div class="block-content">nums = [1,1,1]</div>
+                                    </div>
+                                    <div class="output-block">
+                                        <div class="block-label">输出：</div>
+                                        <div class="block-content">3</div>
+                                    </div>
+                                </div>
+                                <div class="example-explanation">
+                                    解释：每个1都需要减少1次操作，总共3次操作。
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Constraints -->
+                    <section id="constraints" class="problem-section">
+                        <h2><i class="fas fa-exclamation-triangle"></i> 约束条件</h2>
+                        <div class="constraints">
+                            <li><code>1 <= nums.length <= 10^5</code></li>
+                            <li><code>1 <= nums[i] <= 10^9</code></li>
+                        </div>
+                    </section>
+
+                    <!-- Approach -->
+                    <section id="approach" class="problem-section">
+                        <h2><i class="fas fa-lightbulb"></i> 解题思路</h2>
+                        <div class="approach">
+                            <h3>数学原理</h3>
+                            <p>这道题的关键在于理解模运算的性质。对于任何整数，它除以3的余数只能是0、1或2：</p>
+                            <ul>
+                                <li><strong>余数为0</strong>：已经是3的倍数，不需要操作</li>
+                                <li><strong>余数为1</strong>：需要减1（1次操作）才能变成3的倍数</li>
+                                <li><strong>余数为2</strong>：需要加1（1次操作）才能变成3的倍数</li>
+                            </ul>
+
+                            <h3>贪心策略</h3>
+                            <p>采用贪心的思路，对于每个元素，我们都选择让它变成3的倍数所需的最少操作次数：</p>
+                            <ol>
+                                <li>遍历数组中的每个元素</li>
+                                <li>计算该元素除以3的余数</li>
+                                <li>根据余数确定需要的操作次数</li>
+                                <li>累加所有操作次数</li>
+                            </ol>
+
+                            <h3>关键观察</h3>
+                            <p>对于余数为2的数，我们也可以选择减2（2次操作），但这比加1（1次操作）要差。同样，对于余数为1的数，我们也可以选择加2（2次操作），但这比减1（1次操作）要差。因此，我们总是选择最优的方案。</p>
+                        </div>
+                    </section>
+
+                    <!-- Algorithm -->
+                    <section id="algorithm" class="problem-section">
+                        <h2><i class="fas fa-rocket-branch"></i> 算法步骤</h2>
+                        <div class="algorithm">
+                            <ol class="algorithm-steps">
+                                <li><strong>初始化计数器</strong>：设置操作次数计数器为0</li>
+                                <li><strong>遍历数组</strong>：遍历数组中的每个元素</li>
+                                <li><strong>计算余数</strong>：计算当前元素除以3的余数</li>
+                                <li><strong>判断并计数</strong>：
+                                    <ul>
+                                        <li>如果余数为1，计数器加1（需要减1）</li>
+                                        <li>如果余数为2，计数器加1（需要加1）</li>
+                                        <li>如果余数为0，计数器不变（已经是3的倍数）</li>
+                                    </ul>
+                                </li>
+                                <li><strong>返回结果</strong>：遍历完成后，返回计数器的值</li>
+                            </ol>
+                        </div>
+                    </section>
+
+                    <!-- Complexity -->
+                    <section id="complexity" class="problem-section">
+                        <h2><i class="fas fa-chart-bar"></i> 复杂度分析</h2>
+                        <div class="complexity-analysis">
+                            <div class="complexity-item">
+                                <h4>时间复杂度</h4>
+                                <div class="complexity-value">O(n)</div>
+                                <div class="complexity-explanation">
+                                    其中n是数组的长度。我们需要遍历数组中的每个元素一次，对每个元素的操作都是O(1)的。
+                                </div>
+                            </div>
+                            <div class="complexity-item">
+                                <h4>空间复杂度</h4>
+                                <div class="complexity-value">O(1)</div>
+                                <div class="complexity-explanation">
+                                    我们只使用了常数空间来存储操作次数计数器，没有使用额外的数据结构。
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Code -->
+                    <section id="code" class="problem-section">
+                        <h2><i class="fas fa-rocket"></i> 代码实现</h2>
+                        <div class="code-tabs">
+                            <div class="tab-buttons">
+                                <button class="tab-button active">Python</button>
+                            </div>
+                            <div class="tab-contents">
+                                <div class="tab-content active">
+                                    <div class="code-block">
+                                        <button class="copy-button" onclick="copyCode(this)">复制代码</button>
+                                        <pre><code class="language-python">def min_operations_divisible_by_3(nums):
+    """
+    返回将数组中所有元素都可以被 3 整除的最少操作次数
+
+    Args:
+        nums: 整数数组
+
+    Returns:
+        最少操作次数
+    """
+    operations = 0
+
+    for num in nums:
+        remainder = num % 3
+        if remainder == 1:
+            # 余数为1，需要减少1次操作
+            operations += 1
+        elif remainder == 2:
+            # 余数为2，需要增加1次操作
+            operations += 1
+        # 余数为0不需要操作
+
+    return operations</code></pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="python-source-link" style="margin-top: 20px; text-align: center;">
+                            <a href="../../solutions/math/min_operations_divisible_by_3.py" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
+                                <i class="fas fa-file-code"></i>
+                                查看完整Python源代码
+                            </a>
+                        </div>
+                    </section>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- Navigation Footer -->
+    <nav class="problem-nav">
+        <div class="container">
+            <div class="nav-links">
+                <a href="#" class="nav-link prev" id="prev-link" style="display: none;">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>上一题</span>
+                    <div class="problem-title">暂无</div>
+                </a>
+                <a href="./index.html" class="nav-link back">
+                    <i class="fas fa-list"></i>
+                    <span>返回数学</span>
+                </a>
+                <a href="../array/valid-sudoku.html" class="nav-link next" id="next-link">
+                    <i class="fas fa-arrow-right"></i>
+                    <span>下一题</span>
+                    <div class="problem-title">数独有效性验证</div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <i class="fas fa-rocket"></i>
+                        <span>Algo Journey</span>
+                    </div>
+                    <p>持续学习，不断进步</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>快速链接</h4>
+                        <ul>
+                            <li><a href="../../index.html">首页</a></li>
+                            <li><a href="../../index.html#categories">分类</a></li>
+                            <li><a href="../../index.html#recent">最近更新</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Algo Journey. Made with <i class="fas fa-heart"></i> for learning.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/problem.js"></script>
+    <script>
+        // Initialize syntax highlighting
+        hljs.highlightAll();
+
+        // Since we only have Python tabs, no tab switching needed
+
+        // Copy code function
+        function copyCode(button) {
+            const codeBlock = button.nextElementSibling;
+            const code = codeBlock.textContent;
+
+            navigator.clipboard.writeText(code).then(() => {
+                button.textContent = '已复制!';
+                button.classList.add('copied');
+
+                setTimeout(() => {
+                    button.textContent = '复制代码';
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        // Initialize problem page
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.ProblemPage) {
+                ProblemPage.initializeProblemPage({
+                    leetcodeId: '0',
+                    title: '最小操作次数',
+                    category: 'math',
+                    difficulty: 'easy'
+                });
+            }
+        });
+    </script>
+</body>
+</html>
