@@ -3,8 +3,8 @@
 # Site settings
 title: Algo Journey
 description: 记录算法学习的每一步，从入门到精通
-url: "https://yourusername.github.io"
-baseurl: "/algo-journey"
+url: "https://chao5go.github.io"
+baseurl: "/algorithm-solutions"
 
 # Build settings
 markdown: kramdown
