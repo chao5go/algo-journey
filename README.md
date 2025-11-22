@@ -3,14 +3,14 @@
 <div align="center">
 
 ![Algo Journey Logo](https://img.shields.io/badge/Algo-Journey-ff6b35?style=for-the-badge)
-![GitHub stars](https://img.shields.io/github/stars/yourusername/algo-journey?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/yourusername/algo-journey?style=for-the-badge)
-![GitHub issues](https://img.shields.io/github/issues/yourusername/algo-journey?style=for-the-badge)
-![GitHub license](https://img.shields.io/github/license/yourusername/algo-journey?style=for-the-badge)
+![GitHub stars](https://img.shields.io/github/stars/chao5go/algo-journey?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/chao5go/algo-journey?style=for-the-badge)
+![GitHub issues](https://img.shields.io/github/issues/chao5go/algo-journey?style=for-the-badge)
+![GitHub license](https://img.shields.io/github/license/chao5go/algo-journey?style=for-the-badge)
 
 **记录算法学习的每一步，从入门到精通的个人学习网站**
 
-[🚀 Live Demo](https://yourusername.github.io/algo-journey) · [📖 文档](#文档) · [🤝 贡献](#贡献指南) · [📝 学习日志](#最新更新)
+[🚀 Live Demo](https://chao5go.github.io/algo-journey) · [📖 文档](#文档) · [🤝 贡献](#贡献指南) · [📝 学习日志](#最新更新)
 
 </div>
 
@@ -29,13 +29,13 @@
 
 ### 在线访问
 
-直接访问 [GitHub Pages](https://yourusername.github.io/algorithm-solutions) 查看完整网站。
+直接访问 [GitHub Pages](https://chao5go.github.io/algorithm-solutions) 查看完整网站。
 
 ### 本地开发
 
 1. **克隆仓库**
    ```bash
-   git clone https://github.com/yourusername/algorithm-solutions.git
+   git clone https://github.com/chao5go/algorithm-solutions.git
    cd algorithm-solutions
    ```
 
@@ -166,9 +166,9 @@ algorithm-solutions/
 
 ## 📈 项目统计
 
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/yourusername/algorithm-solutions)
-![GitHub last commit](https://img.shields.io/github/last-commit/yourusername/algorithm-solutions)
-![GitHub code size](https://img.shields.io/github/languages/code-size/yourusername/algorithm-solutions)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/chao5go/algorithm-solutions)
+![GitHub last commit](https://img.shields.io/github/last-commit/chao5go/algorithm-solutions)
+![GitHub code size](https://img.shields.io/github/languages/code-size/chao5go/algorithm-solutions)
 
 ## 🤝 贡献指南
 
@@ -203,8 +203,8 @@ algorithm-solutions/
 
 ## 📞 联系方式
 
-- **项目主页**: [https://github.com/yourusername/algo-journey](https://github.com/yourusername/algo-journey)
-- **在线演示**: [https://yourusername.github.io/algo-journey](https://yourusername.github.io/algo-journey)
+- **项目主页**: [https://github.com/chao5go/algo-journey](https://github.com/chao5go/algo-journey)
+- **在线演示**: [https://chao.github.io/algo-journey](https://chao5go.github.io/algo-journey)
 - **邮箱**: your.email@example.com
 
 ---
@@ -213,6 +213,6 @@ algorithm-solutions/
 
 **如果这个项目对你有帮助，请给它一个 ⭐️ Star！**
 
-Made with ❤️ by [Your Name](https://github.com/yourusername)
+Made with ❤️ by [Your Name](https://github.com/chao5go)
 
 </div>
