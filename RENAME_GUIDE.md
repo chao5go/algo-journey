@@ -45,7 +45,7 @@
 
 ### 2. 更新本地Git配置
 ```bash
-git remote set-url origin https://github.com/yourusername/algo-journey.git
+git remote set-url origin https://github.com/chao5go/algo-journey.git
 git add .
 git commit -m "🚀 rename project: Algorithm Solutions → Algo Journey"
 git push origin main
@@ -71,8 +71,8 @@ git push origin main
 
 ## 📱 更新后的网站访问地址
 
-- **GitHub仓库**: https://github.com/yourusername/algo-journey
-- **GitHub Pages**: https://yourusername.github.io/algo-journey
+- **GitHub仓库**: https://github.com/chao5go/algo-journey
+- **GitHub Pages**: https://chao5go.github.io/algo-journey
 - **本地开发**: `npm run dev` 或 `python3 -m http.server 8000`
 
 ## 🎉 重命名带来的好处

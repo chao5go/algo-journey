@@ -154,7 +154,7 @@ class DeployScript {
     }
 
     createSitemapContent() {
-        const baseUrl = 'https://yourusername.github.io/algo-journey';
+        const baseUrl = 'https://chao5go.github.io/algo-journey';
         const currentDate = new Date().toISOString();
 
         const urls = [

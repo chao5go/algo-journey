@@ -39,7 +39,7 @@ git clone https://github.com/YOUR_USERNAME/algorithm-solutions.git
 cd algorithm-solutions
 
 # 添加上游仓库
-git remote add upstream https://github.com/yourusername/algorithm-solutions.git
+git remote add upstream https://github.com/chao5go/algorithm-solutions.git
 ```
 
 ### 2. 安装依赖
@@ -392,8 +392,8 @@ docs: update contributing guide
 如果你有任何问题或建议，可以通过以下方式联系：
 
 - 📧 邮箱: your.email@example.com
-- 🐛 GitHub Issues: [创建新Issue](https://github.com/yourusername/algorithm-solutions/issues)
-- 💬 GitHub Discussions: [参与讨论](https://github.com/yourusername/algorithm-solutions/discussions)
+- 🐛 GitHub Issues: [创建新Issue](https://github.com/chao5go/algorithm-solutions/issues)
+- 💬 GitHub Discussions: [参与讨论](https://github.com/chao5go/algorithm-solutions/discussions)
 
 ---
 
