@@ -29,14 +29,14 @@
 
 ### 在线访问
 
-直接访问 [GitHub Pages](https://chao5go.github.io/algorithm-solutions) 查看完整网站。
+直接访问 [GitHub Pages](https://chao5go.github.io/algo-journey) 查看完整网站。
 
 ### 本地开发
 
 1. **克隆仓库**
    ```bash
-   git clone https://github.com/chao5go/algorithm-solutions.git
-   cd algorithm-solutions
+   git clone https://github.com/chao5go/algo-journey.git
+   cd algo-journey
    ```
 
 2. **安装依赖**
@@ -61,7 +61,7 @@
 ### 项目结构
 
 ```
-algorithm-solutions/
+algo-journey/
 ├── assets/                 # 静态资源
 │   ├── css/               # 样式文件
 │   ├── js/                # JavaScript 文件
@@ -166,9 +166,9 @@ algorithm-solutions/
 
 ## 📈 项目统计
 
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/chao5go/algorithm-solutions)
-![GitHub last commit](https://img.shields.io/github/last-commit/chao5go/algorithm-solutions)
-![GitHub code size](https://img.shields.io/github/languages/code-size/chao5go/algorithm-solutions)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/chao5go/algo-journey)
+![GitHub last commit](https://img.shields.io/github/last-commit/chao5go/algo-journey)
+![GitHub code size](https://img.shields.io/github/languages/code-size/chao5go/algo-journey)
 
 ## 🤝 贡献指南
 

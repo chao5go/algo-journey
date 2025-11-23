@@ -4,7 +4,7 @@
 title: Algo Journey
 description: 记录算法学习的每一步，从入门到精通
 url: "https://chao5go.github.io"
-baseurl: "/algorithm-solutions"
+baseurl: "/algo-journey"
 
 # Build settings
 markdown: kramdown

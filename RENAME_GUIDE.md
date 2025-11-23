@@ -5,7 +5,7 @@
 ### ✅ 已完成的更改
 
 1. **package.json** - 项目配置文件
-   - ✅ 项目名称: `algorithm-solutions` → `algo-journey`
+   - ✅ 项目名称: `algo-journey` → `algo-journey`
    - ✅ 项目描述: 更新为更积极向上的描述
    - ✅ 仓库链接: 更新为新的仓库名
    - ✅ 主页链接: 更新为新的GitHub Pages地址
@@ -14,7 +14,7 @@
 2. **_config.yml** - Jekyll配置文件
    - ✅ 网站标题: `Algorithm Solutions` → `Algo Journey`
    - ✅ 网站描述: 更新为新的描述
-   - ✅ baseurl: `/algorithm-solutions` → `/algo-journey`
+   - ✅ baseurl: `/algo-journey` → `/algo-journey`
 
 3. **index.html** - 主页
    - ✅ 页面标题
@@ -40,7 +40,7 @@
 ### 1. 重命名GitHub仓库
 1. 在GitHub上进入你的仓库
 2. 点击 Settings → General
-3. 在 "Repository name" 部分将 `algorithm-solutions` 改为 `algo-journey`
+3. 在 "Repository name" 部分将 `algo-journey` 改为 `algo-journey`
 4. 点击 "Rename" 确认
 
 ### 2. 更新本地Git配置
