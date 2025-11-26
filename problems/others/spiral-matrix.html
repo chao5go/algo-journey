@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>螺旋矩阵 | 算法解题记录</title>
+    <meta name="description"="按顺时针螺旋顺序返回矩阵中的所有元素">
+    <meta name="keywords" content="算法,54,数组,中等,解题">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourusername.github.io/algorithm-solutions/problems/others/spiral-matrix.html">
+    <meta property="og:title" content="螺旋矩阵 | 算法解题记录">
+    <meta property="og:description" content="按顺时针螺旋顺序返回矩阵中的所有元素">
+    <meta property="og:image" content="https://yourusername.github.io/algorithm-solutions/assets/images/spiral-matrix.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourusername.github.io/algorithm-solutions/problems/others/spiral-matrix.html">
+    <meta property="twitter:title" content="螺旋矩阵 | 算法解题记录">
+    <meta property="twitter:description" content="按顺时针螺旋顺序返回矩阵中的所有元素">
+    <meta property="twitter:image" content="https://yourusername.github.io/algorithm-solutions/assets/images/spiral-matrix.jpg">
+
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/problem.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-rocket"></i>
+                <span>Algo Journey</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">首页</a></li>
+                <li><a href="../index.html#categories" class="nav-link">分类</a></li>
+                <li><a href="../index.html#recent" class="nav-link">最近更新</a></li>
+                <li><a href="../index.html#statistics" class="nav-link">统计</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Problem Header -->
+    <header class="problem-header">
+        <div class="container">
+            <div class="problem-breadcrumb">
+                <a href="../index.html">首页</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="../index.html#categories">分类</a>
+                <i class="fas fa-chevron-right"></i>
+                <a href="../problems/array/index.html">数组</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>螺旋矩阵</span>
+            </div>
+
+            <div class="problem-title-section">
+                <h1 class="problem-title">螺旋矩阵</h1>
+                <div class="problem-meta">
+                    <span class="problem-id">LeetCode 54</span>
+                    <span class="difficulty medium">中等</span>
+                    <span class="category">数组</span>
+                    <span class="date">2024-11-26</span>
+                </div>
+            </div>
+
+            <div class="problem-tags">
+                <span class="tag">数组</span>
+                <span class="tag">矩阵</span>
+                <span class="tag">模拟</span>
+                <span class="tag">遍历</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Problem Content -->
+    <main class="problem-content">
+        <div class="container">
+            <div class="problem-layout">
+                <!-- Table of Contents -->
+                <aside class="problem-sidebar">
+                    <div class="toc">
+                        <h3>目录</h3>
+                        <nav class="toc-nav">
+                            <ul>
+                                <li><a href="#description">题目描述</a></li>
+                                <li><a href="#examples">示例</a></li>
+                                <li><a href="#constraints">约束条件</a></li>
+                                <li><a href="#approach">解题思路</a></li>
+                                <li><a href="#algorithm">算法实现</a></li>
+                                <li><a href="#complexity">复杂度分析</a></li>
+                                <li><a href="#code">代码实现</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <div class="quick-info">
+                        <h3>快速信息</h3>
+                        <div class="info-item">
+                            <span class="label">时间复杂度:</span>
+                            <span class="value">O(m × n)</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">空间复杂度:</span>
+                            <span class="value">O(1)</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">相关题目:</span>
+                            <div class="related-problems">
+                                <a href="#" class="related-problem">螺旋矩阵 II</a>
+                                <a href="#" class="related-problem">旋转图像</a>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Main Content -->
+                <article class="problem-main">
+                    <!-- Problem Description -->
+                    <section id="description" class="problem-section">
+                        <h2><i class="fas fa-book"></i> 题目描述</h2>
+                        <div class="problem-description">
+                            <p>给你一个 <code>m</code> 行 <code>n</code> 列的矩阵 <code>matrix</code> ，请按照 <strong>顺时针螺旋顺序</strong> ，返回矩阵中的所有元素。</p>
+                        </div>
+                    </section>
+
+                    <!-- Examples -->
+                    <section id="examples" class="problem-section">
+                        <h2><i class="fas fa-list"></i> 示例</h2>
+                        <div class="examples">
+                            <div class="example">
+                                <h4>示例 1：</h4>
+                                <div class="example-content">
+                                    <div class="example-input">
+                                        <strong>输入：</strong> matrix = [[1,2,3],[4,5,6],[7,8,9]]
+                                    </div>
+                                    <div class="example-output">
+                                        <strong>输出：</strong> [1,2,3,6,9,8,7,4,5]
+                                    </div>
+                                    <div class="example-explanation">
+                                        <p>按照顺时针螺旋顺序遍历：</p>
+                                        <ul>
+                                            <li>向右：1, 2, 3</li>
+                                            <li>向下：6, 9</li>
+                                            <li>向左：8, 7</li>
+                                            <li>向上：4</li>
+                                            <li>向右：5</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="example">
+                                <h4>示例 2：</h4>
+                                <div class="example-content">
+                                    <div class="example-input">
+                                        <strong>输入：</strong> matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+                                    </div>
+                                    <div class="example-output">
+                                        <strong>输出：</strong> [1,2,3,4,8,12,11,10,9,5,6,7]
+                                    </div>
+                                    <div class="example-explanation">
+                                        <p>按照顺时针螺旋顺序遍历：</p>
+                                        <ul>
+                                            <li>向右：1, 2, 3, 4</li>
+                                            <li>向下：8, 12</li>
+                                            <li>向左：11, 10, 9</li>
+                                            <li>向上：5</li>
+                                            <li>向右：6, 7</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Constraints -->
+                    <section id="constraints" class="problem-section">
+                        <h2><i class="fas fa-exclamation-triangle"></i> 约束条件</h2>
+                        <div class="constraints">
+                            <ul>
+                                <li><code>m == matrix.length</code></li>
+                                <li><code>n == matrix[i].length</code></li>
+                                <li><code>1 <= m, n <= 10</code></li>
+                                <li><code>-100 <= matrix[i][j] <= 100</code></li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Approach -->
+                    <section id="approach" class="problem-section">
+                        <h2><i class="fas fa-lightbulb"></i> 解题思路</h2>
+                        <div class="approach">
+                            <h3>问题分析</h3>
+                            <p>螺旋矩阵遍历是一个经典的矩阵遍历问题。我们需要按照顺时针方向，从外到内逐层访问矩阵的元素。</p>
+
+                            <h3>关键思路</h3>
+                            <p>这个问题的核心思想是模拟螺旋遍历的过程。我们可以使用边界控制的方法来解决这个问题：</p>
+
+                            <h4>方法一：边界控制法（推荐）</h4>
+                            <ol>
+                                <li><strong>定义边界</strong>：使用四个变量来标识当前遍历的边界</li>
+                                <li><strong>循环遍历</strong>：按照右→下→左→上的顺序遍历</li>
+                                <li><strong>边界收缩</strong>：每完成一个方向遍历，收缩对应边界</li>
+                                <li><strong>终止条件</strong>：当所有元素都被访问时停止</li>
+                            </ol>
+
+                            <h4>方法二：方向向量法</h4>
+                            <ol>
+                                <li><strong>定义方向</strong>：使用方向数组表示四个方向</li>
+                                <li><strong>标记访问</strong>：使用标记数组记录已访问的元素</li>
+                                <li><strong>转向判断</strong>：遇到边界或已访问元素时改变方向</li>
+                            </ol>
+
+                            <h3>为什么选择边界控制法？</h3>
+                            <ul>
+                                <li>空间效率更高，不需要额外的标记数组</li>
+                                <li>逻辑清晰，易于理解和实现</li>
+                                <li>代码简洁，不容易出错</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Algorithm -->
+                    <section id="algorithm" class="problem-section">
+                        <h2><i class="fas fa-rocket-branch"></i> 算法步骤</h2>
+                        <div class="algorithm">
+                            <h3>边界控制法详细步骤：</h3>
+
+                            <h4>1. 初始化边界</h4>
+                            <pre><code>top = 0                    // 上边界
+bottom = m - 1            // 下边界
+left = 0                   // 左边界
+right = n - 1             // 右边界
+result = []                // 结果数组</code></pre>
+
+                            <h4>2. 螺旋遍历循环</h4>
+                            <p>当 top <= bottom 且 left <= right 时执行：</p>
+
+                            <h5>步骤1：向右遍历</h5>
+                            <pre><code>for j from left to right:
+    result.append(matrix[top][j])
+top += 1                  // 上边界下移</code></pre>
+
+                            <h5>步骤2：向下遍历</h5>
+                            <pre><code>for i from top to bottom:
+    result.append(matrix[i][right])
+right -= 1                // 右边界左移</code></pre>
+
+                            <h5>步骤3：向左遍历（需要边界检查）</h5>
+                            <pre><code>if top <= bottom:
+    for j from right down to left:
+        result.append(matrix[bottom][j])
+    bottom -= 1           // 下边界上移</code></pre>
+
+                            <h5>步骤4：向上遍历（需要边界检查）</h5>
+                            <pre><code>if left <= right:
+    for i from bottom down to top:
+        result.append(matrix[i][left])
+    left += 1             // 左边界右移</code></pre>
+
+                            <h4>3. 返回结果</h4>
+                            <pre><code>return result</code></pre>
+
+                            <h3>关键点说明：</h3>
+                            <ul>
+                                <li><strong>边界检查</strong>：每完成一个方向后，需要检查是否还能继续遍历</li>
+                                <li><strong>条件判断</strong>：向左和向上遍历前需要检查边界有效性</li>
+                                <li><strong>循环控制</strong>：总共会遍历 m × n 个元素</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Complexity -->
+                    <section id="complexity" class="problem-section">
+                        <h2><i class="fas fa-chart-bar"></i> 复杂度分析</h2>
+                        <div class="complexity-analysis">
+                            <h3>时间复杂度：O(m × n)</h3>
+                            <ul>
+                                <li>矩阵中的每个元素都被访问恰好一次</li>
+                                <li>总共需要处理 m × n 个元素</li>
+                                <li>没有任何元素的重复访问或遗漏</li>
+                            </ul>
+
+                            <h3>空间复杂度：O(1)</h3>
+                            <ul>
+                                <li>只使用了常数个额外变量（四个边界指针）</li>
+                                <li>结果数组不计入空间复杂度（这是题目要求的输出）</li>
+                                <li>没有使用额外的数据结构来标记访问状态</li>
+                            </ul>
+
+                            <h3>算法优势：</h3>
+                            <ul>
+                                <li><strong>时间最优</strong>：每个元素只访问一次</li>
+                                <li><strong>空间最优</strong>：只使用常数额外空间</li>
+                                <li><strong>实现简洁</strong>：逻辑清晰，代码简短</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Code -->
+                    <section id="code" class="problem-section">
+                        <h2><i class="fas fa-rocket"></i> 代码实现</h2>
+                        <div class="code-tabs">
+                            <div class="tab-buttons">
+                                <button class="tab-button active" data-lang="python">Python</button>
+                                <button class="tab-button" data-lang="javascript">JavaScript</button>
+                                <button class="tab-button" data-lang="java">Java</button>
+                                <button class="tab-button" data-lang="cpp">C++</button>
+                            </div>
+                            <div class="tab-contents">
+                                <div class="tab-content active" data-lang="python">
+                                    <pre><code class="language-python">def spiralOrder(matrix):
+    """
+    螺旋矩阵遍历 - 边界控制法
+    :param matrix: List[List[int]] - 输入矩阵
+    :return: List[int] - 螺旋遍历结果
+    """
+    if not matrix or not matrix[0]:
+        return []
+
+    m, n = len(matrix), len(matrix[0])
+    result = []
+
+    # 定义四个边界
+    top, bottom = 0, m - 1
+    left, right = 0, n - 1
+
+    # 螺旋遍历
+    while top <= bottom and left <= right:
+        # 1. 向右遍历
+        for j in range(left, right + 1):
+            result.append(matrix[top][j])
+        top += 1
+
+        # 2. 向下遍历
+        for i in range(top, bottom + 1):
+            result.append(matrix[i][right])
+        right -= 1
+
+        # 3. 向左遍历（需要边界检查）
+        if top <= bottom:
+            for j in range(right, left - 1, -1):
+                result.append(matrix[bottom][j])
+            bottom -= 1
+
+        # 4. 向上遍历（需要边界检查）
+        if left <= right:
+            for i in range(bottom, top - 1, -1):
+                result.append(matrix[i][left])
+            left += 1
+
+    return result
+
+# 测试函数
+def test_spiral_order():
+    # 测试用例1
+    matrix1 = [[1,2,3],[4,5,6],[7,8,9]]
+    print(f"输入: {matrix1}")
+    print(f"输出: {spiralOrder(matrix1)}")
+    print("期望: [1,2,3,6,9,8,7,4,5]")
+
+    # 测试用例2
+    matrix2 = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+    print(f"\n输入: {matrix2}")
+    print(f"输出: {spiralOrder(matrix2)}")
+    print("期望: [1,2,3,4,8,12,11,10,9,5,6,7]")
+
+if __name__ == "__main__":
+    test_spiral_order()</code></pre>
+                                </div>
+
+                                <div class="tab-content" data-lang="javascript">
+                                    <pre><code class="language-javascript">/**
+ * 螺旋矩阵遍历 - 边界控制法
+ * @param {number[][]} matrix - 输入矩阵
+ * @return {number[]} - 螺旋遍历结果
+ */
+var spiralOrder = function(matrix) {
+    if (!matrix || matrix.length === 0 || matrix[0].length === 0) {
+        return [];
+    }
+
+    const m = matrix.length;
+    const n = matrix[0].length;
+    const result = [];
+
+    // 定义四个边界
+    let top = 0, bottom = m - 1;
+    let left = 0, right = n - 1;
+
+    // 螺旋遍历
+    while (top <= bottom && left <= right) {
+        // 1. 向右遍历
+        for (let j = left; j <= right; j++) {
+            result.push(matrix[top][j]);
+        }
+        top++;
+
+        // 2. 向下遍历
+        for (let i = top; i <= bottom; i++) {
+            result.push(matrix[i][right]);
+        }
+        right--;
+
+        // 3. 向左遍历（需要边界检查）
+        if (top <= bottom) {
+            for (let j = right; j >= left; j--) {
+                result.push(matrix[bottom][j]);
+            }
+            bottom--;
+        }
+
+        // 4. 向上遍历（需要边界检查）
+        if (left <= right) {
+            for (let i = bottom; i >= top; i--) {
+                result.push(matrix[i][left]);
+            }
+            left++;
+        }
+    }
+
+    return result;
+};
+
+// 测试函数
+function testSpiralOrder() {
+    // 测试用例1
+    const matrix1 = [[1,2,3],[4,5,6],[7,8,9]];
+    console.log("输入:", matrix1);
+    console.log("输出:", spiralOrder(matrix1));
+    console.log("期望:", [1,2,3,6,9,8,7,4,5]);
+
+    // 测试用例2
+    const matrix2 = [[1,2,3,4],[5,6,7,8],[9,10,11,12]];
+    console.log("\n输入:", matrix2);
+    console.log("输出:", spiralOrder(matrix2));
+    console.log("期望:", [1,2,3,4,8,12,11,10,9,5,6,7]);
+}
+
+testSpiralOrder();</code></pre>
+                                </div>
+
+                                <div class="tab-content" data-lang="java">
+                                    <pre><code class="language-java">import java.util.*;
+
+class Solution {
+    /**
+     * 螺旋矩阵遍历 - 边界控制法
+     * @param matrix 输入矩阵
+     * @return 螺旋遍历结果
+     */
+    public List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> result = new ArrayList<>();
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+            return result;
+        }
+
+        int m = matrix.length;
+        int n = matrix[0].length;
+
+        // 定义四个边界
+        int top = 0, bottom = m - 1;
+        int left = 0, right = n - 1;
+
+        // 螺旋遍历
+        while (top <= bottom && left <= right) {
+            // 1. 向右遍历
+            for (int j = left; j <= right; j++) {
+                result.add(matrix[top][j]);
+            }
+            top++;
+
+            // 2. 向下遍历
+            for (int i = top; i <= bottom; i++) {
+                result.add(matrix[i][right]);
+            }
+            right--;
+
+            // 3. 向左遍历（需要边界检查）
+            if (top <= bottom) {
+                for (int j = right; j >= left; j--) {
+                    result.add(matrix[bottom][j]);
+                }
+                bottom--;
+            }
+
+            // 4. 向上遍历（需要边界检查）
+            if (left <= right) {
+                for (int i = bottom; i >= top; i--) {
+                    result.add(matrix[i][left]);
+                }
+                left++;
+            }
+        }
+
+        return result;
+    }
+
+    // 测试函数
+    public void testSpiralOrder() {
+        // 测试用例1
+        int[][] matrix1 = {{1,2,3},{4,5,6},{7,8,9}};
+        System.out.println("输入: " + Arrays.deepToString(matrix1));
+        System.out.println("输出: " + spiralOrder(matrix1));
+        System.out.println("期望: [1, 2, 3, 6, 9, 8, 7, 4, 5]");
+
+        // 测试用例2
+        int[][] matrix2 = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
+        System.out.println("\n输入: " + Arrays.deepToString(matrix2));
+        System.out.println("输出: " + spiralOrder(matrix2));
+        System.out.println("期望: [1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7]");
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        solution.testSpiralOrder();
+    }
+}</code></pre>
+                                </div>
+
+                                <div class="tab-content" data-lang="cpp">
+                                    <pre><code class="language-cpp">#include <iostream>
+#include <vector>
+using namespace std;
+
+class Solution {
+public:
+    /**
+     * 螺旋矩阵遍历 - 边界控制法
+     * @param matrix 输入矩阵
+     * @return 螺旋遍历结果
+     */
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        vector<int> result;
+        if (matrix.empty() || matrix[0].empty()) {
+            return result;
+        }
+
+        int m = matrix.size();
+        int n = matrix[0].size();
+
+        // 定义四个边界
+        int top = 0, bottom = m - 1;
+        int left = 0, right = n - 1;
+
+        // 螺旋遍历
+        while (top <= bottom && left <= right) {
+            // 1. 向右遍历
+            for (int j = left; j <= right; j++) {
+                result.push_back(matrix[top][j]);
+            }
+            top++;
+
+            // 2. 向下遍历
+            for (int i = top; i <= bottom; i++) {
+                result.push_back(matrix[i][right]);
+            }
+            right--;
+
+            // 3. 向左遍历（需要边界检查）
+            if (top <= bottom) {
+                for (int j = right; j >= left; j--) {
+                    result.push_back(matrix[bottom][j]);
+                }
+                bottom--;
+            }
+
+            // 4. 向上遍历（需要边界检查）
+            if (left <= right) {
+                for (int i = bottom; i >= top; i--) {
+                    result.push_back(matrix[i][left]);
+                }
+                left++;
+            }
+        }
+
+        return result;
+    }
+
+    // 测试函数
+    void testSpiralOrder() {
+        // 测试用例1
+        vector<vector<int>> matrix1 = {{1,2,3},{4,5,6},{7,8,9}};
+        cout << "输入: [";
+        for (const auto& row : matrix1) {
+            cout << "[";
+            for (int i = 0; i < row.size(); i++) {
+                cout << row[i] << (i == row.size() - 1 ? "" : ",");
+            }
+            cout << "]";
+        }
+        cout << "]" << endl;
+
+        vector<int> result1 = spiralOrder(matrix1);
+        cout << "输出: [";
+        for (int i = 0; i < result1.size(); i++) {
+            cout << result1[i] << (i == result1.size() - 1 ? "" : ",");
+        }
+        cout << "]" << endl;
+        cout << "期望: [1,2,3,6,9,8,7,4,5]" << endl;
+
+        // 测试用例2
+        vector<vector<int>> matrix2 = {{1,2,3,4},{5,6,7,8},{9,10,11,12}};
+        cout << "\n输入: [";
+        for (const auto& row : matrix2) {
+            cout << "[";
+            for (int i = 0; i < row.size(); i++) {
+                cout << row[i] << (i == row.size() - 1 ? "" : ",");
+            }
+            cout << "]";
+        }
+        cout << "]" << endl;
+
+        vector<int> result2 = spiralOrder(matrix2);
+        cout << "输出: [";
+        for (int i = 0; i < result2.size(); i++) {
+            cout << result2[i] << (i == result2.size() - 1 ? "" : ",");
+        }
+        cout << "]" << endl;
+        cout << "期望: [1,2,3,4,8,12,11,10,9,5,6,7]" << endl;
+    }
+};
+
+int main() {
+    Solution solution;
+    solution.testSpiralOrder();
+    return 0;
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Test Cases -->
+                    <section id="test-cases" class="problem-section">
+                        <h2><i class="fas fa-vial"></i> 测试用例</h2>
+                        <div class="test-cases">
+                            <h3>基础测试用例</h3>
+
+                            <div class="test-case">
+                                <h4>测试用例 1：3×3 方阵</h4>
+                                <div class="test-input">
+                                    <strong>输入：</strong> [[1,2,3],[4,5,6],[7,8,9]]
+                                </div>
+                                <div class="test-output">
+                                    <strong>输出：</strong> [1,2,3,6,9,8,7,4,5]
+                                </div>
+                            </div>
+
+                            <div class="test-case">
+                                <h4>测试用例 2：3×4 矩阵</h4>
+                                <div class="test-input">
+                                    <strong>输入：</strong> [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+                                </div>
+                                <div class="test-output">
+                                    <strong>输出：</strong> [1,2,3,4,8,12,11,10,9,5,6,7]
+                                </div>
+                            </div>
+
+                            <div class="test-case">
+                                <h4>测试用例 3：单行矩阵</h4>
+                                <div class="test-input">
+                                    <strong>输入：</strong> [[1,2,3,4,5]]
+                                </div>
+                                <div class="test-output">
+                                    <strong>输出：</strong> [1,2,3,4,5]
+                                </div>
+                            </div>
+
+                            <div class="test-case">
+                                <h4>测试用例 4：单列矩阵</h4>
+                                <div class="test-input">
+                                    <strong>输入：</strong> [[1],[2],[3],[4]]
+                                </div>
+                                <div class="test-output">
+                                    <strong>输出：</strong> [1,2,3,4]
+                                </div>
+                            </div>
+
+                            <div class="test-case">
+                                <h4>测试用例 5：1×1 矩阵</h4>
+                                <div class="test-input">
+                                    <strong>输入：</strong> [[1]]
+                                </div>
+                                <div class="test-output">
+                                    <strong>输出：</strong> [1]
+                                </div>
+                            </div>
+
+                            <h3>边界测试用例</h3>
+
+                            <div class="test-case">
+                                <h4>测试用例 6：2×2 矩阵</h4>
+                                <div class="test-input">
+                                    <strong>输入：</strong> [[1,2],[3,4]]
+                                </div>
+                                <div class="test-output">
+                                    <strong>输出：</strong> [1,2,4,3]
+                                </div>
+                            </div>
+
+                            <div class="test-case">
+                                <h4>测试用例 7：包含负数</h4>
+                                <div class="test-input">
+                                    <strong>输入：</strong> [[-1,-2,-3],[-4,-5,-6],[-7,-8,-9]]
+                                </div>
+                                <div class="test-output">
+                                    <strong>输出：</strong> [-1,-2,-3,-6,-9,-8,-7,-4,-5]
+                                </div>
+                            </div>
+
+                            <h3>性能测试用例</h3>
+
+                            <div class="test-case">
+                                <h4>测试用例 8：最大规模 (10×10)</h4>
+                                <div class="test-input">
+                                    <strong>输入：</strong> 10×10 矩阵，元素为 1 到 100
+                                </div>
+                                <div class="test-output">
+                                    <strong>输出：</strong> 长度为 100 的螺旋遍历结果
+                                </div>
+                                <div class="test-note">
+                                    <strong>验证：</strong> 确保所有元素都被访问且顺序正确
+                                </div>
+                            </div>
+
+                            <h3>运行测试</h3>
+                            <p>使用以下代码来验证你的实现：</p>
+                            <pre><code class="language-python"># Python 测试代码
+def run_tests():
+    test_cases = [
+        ([[1,2,3],[4,5,6],[7,8,9]], [1,2,3,6,9,8,7,4,5]),
+        ([[1,2,3,4],[5,6,7,8],[9,10,11,12]], [1,2,3,4,8,12,11,10,9,5,6,7]),
+        ([[1,2,3,4,5]], [1,2,3,4,5]),
+        ([[1],[2],[3],[4]], [1,2,3,4]),
+        ([[1]], [1]),
+        ([[1,2],[3,4]], [1,2,4,3]),
+    ]
+
+    for i, (matrix, expected) in enumerate(test_cases):
+        result = spiralOrder(matrix)
+        if result == expected:
+            print(f"测试用例 {i+1} 通过 ✓")
+        else:
+            print(f"测试用例 {i+1} 失败 ✗")
+            print(f"  输入: {matrix}")
+            print(f"  期望: {expected}")
+            print(f"  实际: {result}")
+
+run_tests()</code></pre>
+                        </div>
+                    </section>
+
+                    <!-- References -->
+                    <section id="references" class="problem-section">
+                        <h2><i class="fas fa-link"></i> 参考资料</h2>
+                        <div class="references">
+                            <ul>
+                                <li><a href="https://leetcode.cn/problems/spiral-matrix/" target="_blank">LeetCode 54. 螺旋矩阵</a></li>
+                                <li><a href="https://leetcode.com/problems/spiral-matrix/" target="_blank">LeetCode 54. Spiral Matrix (英文)</a></li>
+                                <li><a href="https://zh.wikipedia.org/wiki/螺旋" target="_blank">螺旋 - 维基百科</a></li>
+                            </ul>
+
+                            <h3>相关题目推荐</h3>
+                            <ul>
+                                <li><a href="#" target="_blank">59. 螺旋矩阵 II</a> - 生成螺旋矩阵</li>
+                                <li><a href="#" target="_blank">48. 旋转图像</a> - 矩阵旋转</li>
+                                <li><a href="#" target="_blank">498. 对角线遍历</a> - 矩阵对角线遍历</li>
+                                <li><a href="#" target="_blank">54. 螺旋矩阵</a> - 本题</li>
+                            </ul>
+                        </div>
+                    </section>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- Navigation Footer -->
+    <nav class="problem-nav">
+        <div class="container">
+            <div class="nav-links">
+                <a href="#" class="nav-link prev" id="prev-link">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>上一题</span>
+                    <div class="problem-title">有效的数独</div>
+                </a>
+                <a href="../problems/array/index.html" class="nav-link back">
+                    <i class="fas fa-list"></i>
+                    <span>返回数组</span>
+                </a>
+                <a href="#" class="nav-link next" id="next-link">
+                    <i class="fas fa-arrow-right"></i>
+                    <span>下一题</span>
+                    <div class="problem-title">旋转图像</div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <i class="fas fa-rocket"></i>
+                        <span>Algo Journey</span>
+                    </div>
+                    <p>持续学习，不断进步</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>快速链接</h4>
+                        <ul>
+                            <li><a href="../index.html">首页</a></li>
+                            <li><a href="../index.html#categories">分类</a></li>
+                            <li><a href="../index.html#recent">最近更新</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Algo Journey. Made with <i class="fas fa-heart"></i> for learning.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/problem.js"></script>
+    <script>
+        // Initialize syntax highlighting
+        hljs.highlightAll();
+
+        // Initialize problem page
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeProblemPage({
+                leetcodeId: '54',
+                title: '螺旋矩阵',
+                category: 'array',
+                difficulty: 'medium'
+            });
+        });
+    </script>
+</body>
+</html>
