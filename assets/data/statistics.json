@@ -1,16 +1,16 @@
 {
-  "totalProblems": 2,
+  "totalProblems": 3,
   "totalCategories": 12,
-  "recentUpdates": 2,
+  "recentUpdates": 3,
   "linesOfCode": 450,
-  "solvingDays": 2,
-  "streakDays": 2,
+  "solvingDays": 3,
+  "streakDays": 3,
   "difficultyDistribution": {
     "easy": 1,
-    "medium": 1,
+    "medium": 2,
     "hard": 0
   },
-  "lastUpdated": "2024-01-20T10:30:00Z",
+  "lastUpdated": "2024-11-26T10:30:00Z",
   "categories": {
     "array": {
       "total": 1,
@@ -71,6 +71,11 @@
       "total": 0,
       "completed": 0,
       "progress": 0
+    },
+    "others": {
+      "total": 1,
+      "completed": 1,
+      "progress": 100
     }
   }
 }

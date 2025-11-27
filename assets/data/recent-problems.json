@@ -1,5 +1,17 @@
 [
   {
+    "id": "spiral-matrix",
+    "title": "螺旋矩阵",
+    "difficulty": "medium",
+    "category": "数组",
+    "date": "2024-11-26",
+    "excerpt": "按照顺时针螺旋顺序，返回矩阵中的所有元素。使用边界控制法实现高效的矩阵遍历。",
+    "url": "./problems/others/spiral-matrix.html",
+    "tags": ["数组", "矩阵", "模拟", "遍历"],
+    "leetcodeId": 54,
+    "readTime": 12
+  },
+  {
     "id": "valid-sudoku",
     "title": "数独有效性验证",
     "difficulty": "medium",
