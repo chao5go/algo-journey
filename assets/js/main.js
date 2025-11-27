@@ -170,7 +170,9 @@ function initializeStats() {
 
 async function loadStatistics() {
     try {
-        const response = await fetch('./assets/data/statistics.json');
+        // Try different possible paths
+        const baseUrl = window.location.pathname.includes('/algo-journey') ? '/algo-journey' : '';
+        const response = await fetch(`${baseUrl}/assets/data/statistics.json`);
         const stats = await response.json();
         updateStatistics(stats);
     } catch (error) {
@@ -240,7 +242,8 @@ function updateDifficultyChart(distribution) {
 
 async function loadCategories() {
     try {
-        const response = await fetch('./assets/data/categories.json');
+        const baseUrl = window.location.pathname.includes('/algo-journey') ? '/algo-journey' : '';
+        const response = await fetch(`${baseUrl}/assets/data/categories.json`);
         const categories = await response.json();
         renderCategories(categories);
     } catch (error) {
@@ -298,7 +301,8 @@ function renderDefaultCategories() {
 
 async function loadRecentProblems() {
     try {
-        const response = await fetch('./assets/data/recent-problems.json');
+        const baseUrl = window.location.pathname.includes('/algo-journey') ? '/algo-journey' : '';
+        const response = await fetch(`${baseUrl}/assets/data/recent-problems.json`);
         const problems = await response.json();
         renderRecentProblems(problems);
     } catch (error) {
